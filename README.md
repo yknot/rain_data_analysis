@@ -25,6 +25,18 @@ to handle new data going from 2002 to 2013 rather then the 2005 to 2010 data
 that was used previously. I hope to make the code as reusable as possible so
 that if we get updated data we can quickly re analyze next time.
 
-
 =================
 
+Ouputs of Program:
+
+Plots:
+Boxplot of Rainfall by Month
+Plot of gaps between Rain
+Time Series Plot of Rain Means by Month
+Confidence Interval for Mean Rainfall by Month
+
+Data:
+Max days without rain
+Mean days without rain
+Mean daily rainfall by month
+Mean daily rainfall by month (unified years)
