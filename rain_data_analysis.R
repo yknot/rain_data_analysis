@@ -5,6 +5,32 @@
 # used for EWB-RPI in their Panama Project
 library("plotrix")
 
+
+#######################################
+#
+#  Shift code by TszKin Julian
+#
+#######################################
+shift<-function(x,shift_by){
+  stopifnot(is.numeric(shift_by))
+  stopifnot(is.numeric(x))
+  
+  if (length(shift_by)>1)
+    return(sapply(shift_by,shift, x=x))
+  
+  out<-NULL
+  abs_shift_by=abs(shift_by)
+  if (shift_by > 0 )
+    out<-c(tail(x,-abs_shift_by),rep(NA,abs_shift_by))
+  else if (shift_by < 0 )
+    out<-c(rep(NA,abs_shift_by), head(x,-abs_shift_by))
+  else
+    out<-x
+  out
+}
+
+######################################################
+
 # read in data
 # data in format of year,month,day,rain
 rain.data <- read.csv("~/R/rain_data_analysis/rain_days_split2.csv",
@@ -132,3 +158,9 @@ cat("\n")
 cat(sprintf("%3s", total))
 cat(sprintf("%5.2f", month.means.total))
 cat("\n")
+
+
+
+# lag plot the rain values vs rle values
+rain.rle$valuesLag <- shift(rain.rle$values, -1)
+plot.default(rain.rle$valuesLag,rain.rle$lengths, ylab = "Rain rle lengths", xlab = "Rain rle values lagged by 1", main = "Rain rle values lagged by 1 and Rain rle lengths")

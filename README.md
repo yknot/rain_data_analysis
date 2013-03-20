@@ -32,9 +32,16 @@ Boxplot of Rainfall by Month
 Plot of gaps between Rain  
 Time Series Plot of Rain Means by Month  
 Confidence Interval for Mean Rainfall by Month  
+Scatter plot of Rain rle values lagged by 1 and Rain rle lengths
 
 Data:
 Max days without rain  
 Mean days without rain  
 Mean daily rainfall by month  
 Mean daily rainfall by month (unified years)  
+
+
+#Notable Events:
+
+*Nov 30 2012 Flood
+*Dec  1 2008 Flood
