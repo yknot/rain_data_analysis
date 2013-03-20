@@ -43,5 +43,5 @@ Mean daily rainfall by month (unified years)
 
 #Notable Events:
 
-*Nov 30 2012 Flood
-*Dec  1 2008 Flood
+* Nov 30 2012 Flood
+* Dec  1 2008 Flood
