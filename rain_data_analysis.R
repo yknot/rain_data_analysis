@@ -72,6 +72,9 @@ ts.plot(rain.rle$lengths[rain.rle$values == 0],
         gpars = list(xlab = "Time",
           ylab = "Lengths of gaps", main = "Plot of gaps between rain"))
 
+# scatterplot rain by rle
+# plot.default(rain.data$rain, rle$lengths)
+
 # time series analysis of month means
 rain.data.ts <- ts(month.means, frequency = 12, start = c(2002, 6))
 ts.plot(rain.data.ts, gpars = list(xlab = "Years", ylab = "Mean rain per month",
@@ -89,7 +92,7 @@ for(j in 1:12){
   # use try because of empty months
   x <- try(t.test(rain.data$rain[rain.data$month == j]), silent = T)
   y <- mean(rain.data$rain[rain.data$month == j], na.rm = T)
-  
+  z <- sd
   count <- count + 1
   # check if try works
   if(class(x) != "try-error"){
@@ -97,6 +100,9 @@ for(j in 1:12){
     ci.months.lower[count] <- try(x$conf.int[1], silent = T)
     ci.months.upper[count] <- try(x$conf.int[2], silent = T)
   }
+
+  ci.months.lower[count] <- 
+  ci.months.upper[count] <-  
   # store means unified over years
   month.means.total[count] <- y
 }
